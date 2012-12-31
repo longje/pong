@@ -1,0 +1,40 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+
+
+public class Pause extends State {
+
+	public Pause(StateManager p) {
+		board = p;
+	}
+	
+	@Override
+	public void draw(Graphics2D ga) {
+		String s = "Paused";
+		ga.setColor(Color.RED);
+		ga.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
+		ga.drawChars(s.toCharArray(), 0, s.length(), board.getWidth()/2 - 55, board.getHeight()/2);
+	}
+	
+	@Override
+	public void run() {
+		//board.changeState(board.getRunState());
+		//board.res();
+		
+	}
+
+	@Override
+	public void pause() {
+		board.changeState(board.getRunState());
+		board.res();
+	}
+
+	@Override
+	public void gameover() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}
